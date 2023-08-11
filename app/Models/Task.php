@@ -12,7 +12,8 @@ class Task extends Model
 
     protected $fillable = [
         'title',
-        'todo_list_id'
+        'todo_list_id',
+        'status'
     ];
 
     public function todoList():BelongsTo

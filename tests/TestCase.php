@@ -4,11 +4,13 @@ namespace Tests;
 
 use App\Models\Task;
 use App\Models\TodoList;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication;
+    use CreatesApplication,
+        DatabaseMigrations;
 
     public function setUp(): void
     {
@@ -22,7 +24,7 @@ abstract class TestCase extends BaseTestCase
         return TodoList::factory()->create($data);
     }
 
-    public function createTask(array $data=[])
+    public function createTask(array $data = [])
     {
         return Task::factory()->create($data);
     }

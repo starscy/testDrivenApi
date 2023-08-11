@@ -60,7 +60,7 @@ class TaskTest extends TestCase
     {
         $response = $this->patchJson(route('task.update', [
             $this->task->id,
-            'title' => 'updated task'
+            'title' => 'updated task',
         ]))
         ->assertOk();
 

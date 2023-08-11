@@ -15,6 +15,14 @@ class TodoList extends Model
         'name'
     ];
 
+    static public function boot()
+    {
+        parent::boot();
+//        self::deleting(function (TodoList $todoList){
+//            $todoList->tasks->each->delete();
+//        });
+    }
+
     public function tasks():HasMany
     {
         return $this->hasMany(Task::class);

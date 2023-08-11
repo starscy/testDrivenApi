@@ -4,6 +4,7 @@ namespace Tests;
 
 use App\Models\Task;
 use App\Models\TodoList;
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
@@ -27,5 +28,10 @@ abstract class TestCase extends BaseTestCase
     public function createTask(array $data = [])
     {
         return Task::factory()->create($data);
+    }
+
+    public function createUser(array $data = [])
+    {
+        return User::factory()->create($data);
     }
 }

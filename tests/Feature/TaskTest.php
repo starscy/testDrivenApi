@@ -24,6 +24,7 @@ class TaskTest extends TestCase
 
     public function test_fetch_all_tasks_of_a_todo_list()
     {
+        $this->createTodoList();
         $this->createTask([
             'todo_list_id' => 2,
         ]);

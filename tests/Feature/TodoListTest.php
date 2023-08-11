@@ -86,12 +86,25 @@ class TodoListTest extends TestCase
         $response->assertJsonValidationErrors(['name']);
     }
 
-    public function test_delete_todo_list()
+
+    public function test_delete_todo_list_with_all_its_tasks()
     {
+        $task = $this->createTask([
+            'todo_list_id' => $this->list->id
+        ]);
+        $taskBeInBase = $this->createTask();
+
         $this->deleteJson(route('todo-list.destroy', $this->list->id));
 
         $this->assertDatabaseMissing('todo_lists', [
             $this->list->id
-        ]);
+        ])
+            ->assertDatabaseMissing('tasks', [
+                'id' => $task->id
+            ])
+            ->assertDatabaseHas('tasks', [
+                'id' => $taskBeInBase->id
+            ]);
+
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodolistController;
@@ -16,5 +17,5 @@ Route::apiResource('todo-list.task', TaskController::class)
     ->shallow();
 
 Route::post('registration', RegisterController::class)->name('register');
-
+Route::post('login', LoginController::class)->name('login');
 
